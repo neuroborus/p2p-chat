@@ -10,8 +10,8 @@
   },
   "scripts": {
     "dev": "pear run -d ./src",
-    "dev-connect": "pear run -d ./src b6c25ebb346fb554d6a6490649ad324f50fa6a163cafb65b5da35cbb66c6b9e8",
-    "test": "brittle test/*.test.js"
+    "test": "brittle test/*.test.js",
+    "clear-messages": "node scripts/clear-messages.js"
   },
   "author": "neuroborus",
   "license": "ISC",

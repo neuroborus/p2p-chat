@@ -11,6 +11,8 @@ const rl = readline.createInterface({
 })
 ui.setupReadline(rl);
 
+await server.start(Pear);
+
 async function createChatRoom () {
     await server.createChatRoom();
 }
@@ -23,8 +25,8 @@ async function joinSwarm (topicBuffer) {
     await server.joinSwarm(topicBuffer);
 }
 
-function sendMessage (message) {
-    server.sendMessage(message);
+async function sendMessage (message) {
+    await server.sendMessage(message);
 }
 
 function appendMessage ({ name, message }) {
