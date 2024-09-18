@@ -1,5 +1,6 @@
 import Hypercore from 'hypercore';
 import Hyperbee from 'hyperbee';
+import b4a from 'b4a';
 
 // Create a new Hypercore feed
 const feed = new Hypercore(
@@ -34,7 +35,7 @@ export async function getAllMessages() {
         history.push({
             key,
             username: value.username,
-            message: value.message,
+            message: b4a.toString(value.message),
         });
         // console.log(`Message at ${key}: ${value.username}: ${value.message}`)
     }

@@ -6,7 +6,7 @@ import {sendMessage} from '../server';
 export function setupReadline(rl) {
     rl.input.setMode(tty.constants.MODE_RAW); // Enable raw input mode for efficient key reading
     rl.on('data', async (line) => {
-        await sendMessage(line);
+        await sendMessage(line.toString().trim());
         rl.prompt();
     });
     rl.prompt();

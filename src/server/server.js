@@ -30,9 +30,17 @@ export async function start(Pear) {
         peer.on('data', async (message) => {
             appendMessage({name, message});
             // Store the incoming message in Hyperbee
-            await storage.storeMessage({ username: 'Peer', message });
+            await storage.storeMessage({ username: 'Peer', message: b4a.toString(message) });
+            console.log(`Received message: ${b4a.toString(message)}`);
         });
-        peer.on('error', e => console.log(`Connection error: ${e}`));
+
+        peer.on('error', (error) => {
+            console.error(`Peer connection error: ${error}`);
+        });
+
+        peer.on('close', () => {
+            console.log('Connection closed');
+        });
     });
 
     // When there's updates to the swarm, update the peers count
